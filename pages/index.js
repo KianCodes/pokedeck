@@ -6,7 +6,7 @@ const PokemonCard = ({ pokemon }) => {
   return (
     <>
       <div className={styles.card}>
-        <div>{pokemon?.species?.name ?? "Pokemon"}</div>
+        <div>{pokemon?.species?.name ?? 'Pokemon'}</div>
         <div>
           <img src={pokemon?.sprites?.front_default} />
         </div>
@@ -66,7 +66,7 @@ export default function Home() {
         <button onClick={handleClick}>Generate</button>
         <div className={styles.grid}>
           {pokemonTeam.map((pokemon) => {
-            return <PokemonCard pokemon={pokemon} />
+            return <PokemonCard key={pokemon.species.name} pokemon={pokemon} />
           })}
         </div>
       </main>
