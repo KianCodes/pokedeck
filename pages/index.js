@@ -45,6 +45,10 @@ export default function Home() {
     setPokemonTeam((team) => [...team, pokemon])
   }
 
+  const handleClearClick = () => {
+    setPokemonTeam([])
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -63,7 +67,11 @@ export default function Home() {
         />
         <PokemonCard pokemon={pokemon} />
 
-        <button onClick={handleClick}>Generate</button>
+        <div>
+          <button onClick={handleClick}>Generate Pokemon</button>
+          <button onClick={handleClearClick}>Clear</button>
+        </div>
+
         <div className={styles.grid}>
           {pokemonTeam.map((pokemon) => {
             return <PokemonCard key={pokemon.species.name} pokemon={pokemon} />
